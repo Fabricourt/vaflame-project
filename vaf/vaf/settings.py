@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'vaf.wsgi.application'
 DATABASES = { 
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vafdb',
+        'NAME': 'vaflamedb',
         'USER': 'postgres',
         'PASSWORD': 'kamau2030',
         'HOST': 'localhost'
