@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'vafdb',
         'USER': 'postgres',
-        'PASSWORD': '123456',
+        'PASSWORD': 'kamau2030',
         'HOST': 'localhost'
     }
 }
