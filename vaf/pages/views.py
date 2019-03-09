@@ -1,13 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from listings.choices import price_choices, lot_size_choices, state_choices
-
-from listings.models import Listing
-from realtors.models import Realtor
-from pages.models import Photoi, Photoa
-
-from django.contrib.auth.decorators import login_required
-
 
 def index(request):
-    return HttpRequest{'<h1> Hello World </h1>'}
+    return render(request, 'pages/index.html')
+
+def about(request):
+    return render(request, 'pages/about.html')
+
+
+def team(request):
+    return render(request, 'pages/team.html')
+
+def partners(request):
+    return render(request, 'pages/partners.html')
+
+
+def testimonials(request):
+    return render(request, 'pages/testimonials.html')
+
+def blog(request):
+    return render(request, 'pages/blog.html')
