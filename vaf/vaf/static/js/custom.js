@@ -22,6 +22,7 @@
     });
 
 
+
     // HOME SLIDER & COURSES & CLIENTS
     $('.home-slider').owlCarousel({
       animateOut: 'fadeOut',
@@ -86,3 +87,11 @@
     });  
 
 })(jQuery);
+
+//waypoints
+var waypoint = new Waypoint({
+  element: document.getElementById('waypoint'),
+  handler: function(direction) {
+    console.log('Scrolled to waypoint!')
+  }
+})

@@ -32,6 +32,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    'team.apps.TeamConfig',
+    'about.apps.AboutConfig',
+    'blog.apps.BlogConfig',
+    'gallery.apps.GalleryConfig',
+    'contact.apps.ContactConfig',
+    'testimonials.apps.TestimonialsConfig',
+    'partners.apps.PartnersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,7 +136,7 @@ USE_TZ = True
 STATIC_ROOT= os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'kwela/static')
+    os.path.join(BASE_DIR, 'vaf/static')
 ]
 
 # Media Folder Settings

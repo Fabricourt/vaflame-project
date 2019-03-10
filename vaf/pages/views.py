@@ -7,16 +7,21 @@ def index(request):
 def about(request):
     return render(request, 'pages/about.html')
 
-
-def team(request):
-    return render(request, 'pages/team.html')
+def contact(request):
+    return render(request, 'pages/contact.html')
 
 def partners(request):
     return render(request, 'pages/partners.html')
 
+def team(request):
+    return render(request, 'pages/team.html')
 
 def testimonials(request):
     return render(request, 'pages/testimonials.html')
 
 def blog(request):
     return render(request, 'pages/blog.html')
+
+
+def gallery(request):
+    return render(request, 'pages/gallery.html')

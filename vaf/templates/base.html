@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- w3.css -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Custom -->
+  <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+  <!-- Owl theme -->
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <!-- fonts -->
+  <link rel="stylesheet" href="{% static 'fonts/fontawesome-webfont.eot' %}">
+  <link rel="stylesheet" href="{% static 'fonts/fontawesome-webfont.svg' %}">
+  <link rel="stylesheet" href="{% static 'fonts/fontawesome-webfont.ttf' %}">
+  <link rel="stylesheet" href="{% static 'fonts/fontawesome-webfont.woff' %}">
+  <link rel="stylesheet" href="{% static 'fonts/fontawesome-webfont.woff2' %}">
+  <link rel="stylesheet" href="{% static 'fonts/Fontawesome.otf' %}">
+
+ <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+  <title>Voice Aflame {% block title %}{% endblock %} </title>
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50" style="width:100%;">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+
+          </div>
+     </section>
+
+  <!-- NavBar -->
+  {% include 'partials/_navbar.html' %}
+
+    <!-- Main Content -->
+  {% block content %} {% endblock %}
+
+  <!-- Footer -->
+  {% include 'partials/_footer.html' %}
+
+  <!-- bootstrap js-->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/smoothscroll.js' %}"></script>
+  <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/infinite.min.js' %}"></script>
+</body>
+
+</html>
