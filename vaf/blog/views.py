@@ -16,12 +16,12 @@ def blog(request):
     context = {
         'posts': Post.objects.all()
     }
-    return render(request, 'blog/blog.html', context)
+    return render(request, 'blog/home.html', context)
 
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/blog.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 5
