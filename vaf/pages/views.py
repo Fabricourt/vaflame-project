@@ -19,9 +19,5 @@ def team(request):
 def testimonials(request):
     return render(request, 'pages/testimonials.html')
 
-def blog(request):
-    return render(request, 'pages/blog.html')
-
-
 def gallery(request):
     return render(request, 'pages/gallery.html')
