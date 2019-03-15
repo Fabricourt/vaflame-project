@@ -23,7 +23,7 @@ class Contact(models.Model):
         super().save()
 
 
-"""
+
 class Sema(models.Model):
   listing = models.CharField(max_length=200)
   listing_id = models.IntegerField()
@@ -36,4 +36,3 @@ class Sema(models.Model):
   def __str__(self):
     return self.name
 
-"""

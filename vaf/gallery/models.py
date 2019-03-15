@@ -22,5 +22,17 @@ class Gallery(models.Model):
     is_published = models.BooleanField(default=True)
     gallery_date = models.DateTimeField(default=datetime.now, blank=True)
     description = RichTextField(blank=True, null=True)
+    
+    class Meta:
+        ordering = ['title']
+
+
     def __str__(self):
-        return self.title
+        """String for representing the Model object."""
+        return '{0}, {1}'.format(self.title)
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular location instance."""
+        return reverse('gallery-detail', args=[str(self.id)])
+
+

@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
+    'users.apps.UsersConfig',
+    'bookings.apps.BookingsConfig',
     'pages.apps.PagesConfig',
     'team.apps.TeamConfig',
     'about.apps.AboutConfig',
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'ckeditor', 
     'crispy_forms',
 

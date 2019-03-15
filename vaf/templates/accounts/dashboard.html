@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}  | {{ user.username|capfirst }}  {% endblock %}
+{% load humanize %}
+{% block content %}
+
+
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">{{ user.username|capfirst }} Dashboard</h1>
+          <p class="lead">Manage your Kwela account</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+
+    
+<section id="dashboard" class="py-4">
+<div class="container ">
+<div class="row">
+<div class="col-md-12">
+  <div>
+ 
+
+  {% if contact %}
+  </div>
+  <h4 class="w3-padding w3-margin w3-right-align">Viewed listings</h4>
+
+  <div class="w3-responsive">
+      <table class="table w3-table-all">
+    
+      <thead>
+    
+        <tr class="w3-brown">
+          <th  scope="col">Date of Contact</th>
+          <th  scope="col">#</th>
+          <th  scope="col">Property</th>
+          <th  scope="col">Message</th>
+          <th ></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sema in contact %}
+          <tr class="w3-border">
+            <td>{{ sema.contact_date }}</td>
+            <td>{{ sema.id }}</td>
+            <td>{{ sema.listing }}</td>
+            <td>{{ sema.message}}</td>
+            <td class="">
+              <a class="btn  w3-green" href="{% url 'listing' sema.listing_id %}">View Listing</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <p>You have not made any inquiries</p>
+  {% endif %}
+
+  {% endblock %}
