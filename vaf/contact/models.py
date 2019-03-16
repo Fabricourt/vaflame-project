@@ -25,8 +25,8 @@ class Contact(models.Model):
 
 
 class Sema(models.Model):
-  listing = models.CharField(max_length=200)
-  listing_id = models.IntegerField()
+  partners = models.CharField(max_length=200)
+  partners_id = models.IntegerField()
   name = models.CharField(max_length=200)
   email = models.CharField(max_length=100)
   phone = models.CharField(max_length=100)

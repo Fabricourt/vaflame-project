@@ -4,11 +4,17 @@ from django.urls import reverse # Used to generate URLS by reversing the URL pat
 from django.contrib.auth.models import User  # Required to assign User as a Partner
 from datetime import date
 from ckeditor.fields import RichTextField
+from team.models import Team
 
 
 
 class Partner(models.Model):
+    title = models.CharField(max_length=200, null=True, blank=True)
+    team = models.ForeignKey(Team, on_delete=models.DO_NOTHING, null=True, blank=True)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    ministry_name = models.CharField(max_length=200, blank=True, null=True)
+    ministry_location = models.CharField(max_length=100, blank=True, null=True)
+    county = models.CharField(max_length=100, blank=True, null=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     identity_number = models.CharField(max_length=100, blank=False, null=False)
@@ -19,18 +25,7 @@ class Partner(models.Model):
     phone = models.IntegerField()
     email = models.CharField(max_length=50)
     is_published = models.BooleanField(default=False)
-    Membership_date = models.DateTimeField(default=datetime.now, blank=True, help_text='Date when partner joined')
-
-    class Meta:
-        ordering = ['last_name', 'first_name']
-
-
+    membership_date = models.DateTimeField(default=datetime.now, blank=True, null=True, help_text='Date when partner joined')
     def __str__(self):
-        """String for representing the Model object."""
-        return '{0}, {1}'.format(self.last_name, self.first_name)
-
-    def get_absolute_url(self):
-        """Returns the url to access a particular location instance."""
-        return reverse('owner-detail', args=[str(self.id)])
-
+        return self.title
 

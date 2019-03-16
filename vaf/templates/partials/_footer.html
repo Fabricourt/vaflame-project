@@ -37,10 +37,19 @@
                                      <p><a href="mailto:youremail.co">hello@youremail.co</a></p>
                                 </address>
   
-                                <div class="w3-hide footer_menu">
+                                <div class="footer_menu">
                                      <h2>Quick Links</h2>
                                      <ul>
-                                          <li><a href="partners">Our Partners</a></li>
+                                             <li
+                                             {% if 'partners' in request.path %}
+                                               class="nav-item active mr-3"
+                                             {% else %}
+                                               class="nav-item mr-3"
+                                             {% endif %}
+                                             >
+                                             <a class="nav-link" href="{% url 'partners' %}">Our Partners</a>
+                                             </li>
+                                          
                                           <li><a href="testimonials">Testimonials</a></li>
                                           <li><a href="team">Team</a></li>
                                           <li><a href="gallery">Gallery</a></li>
