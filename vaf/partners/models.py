@@ -22,6 +22,7 @@ class Partner(models.Model):
     date_of_death = models.DateField('Died', null=True, blank=True)
     description = RichTextField(blank=True, help_text='e.g partner role, organisation, ministry' )
     zip_code = models.CharField(max_length=20)
+    address = models.CharField(max_length=50, null=True, blank=True)
     phone = models.IntegerField()
     email = models.CharField(max_length=50)
     is_published = models.BooleanField(default=False)

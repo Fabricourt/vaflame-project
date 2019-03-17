@@ -1,18 +1,48 @@
 from django.shortcuts import render,  redirect
 from django.contrib import messages
 from django.core.mail import send_mail
+from .forms import BookingForm
 from .models import Booking
+from django.shortcuts import get_object_or_404, render
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
-
+from.models import Booking
 from django.contrib.auth.decorators import login_required
-
-
 
 @login_required
 def booking(request):
+    template ="booking.html"
+
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+    else:
+        form = BookingForm()
+     
+    
+    bookings = Booking.objects.order_by('-booking_date').filter(is_published=True)
+    context ={
+        'bookings':bookings,
+        'form': form,
+    }
+
+
+    messages.success(request, 'Your message has been sent')
+    return render (request, template, context)
+
+  
+
+
+
+
+
+"""
+@login_required
+def booking(request):
   if request.method == 'POST':
-    partner = request.POST['partner']
-    partner_id = request.POST['partner_id']
+   
     ministry_name = request.POST['ministry_name']
     ministry_location = request.POST['ministry_location']
     county = request.POST['county']
@@ -26,14 +56,8 @@ def booking(request):
     user_id = request.POST['user_id']
     team_email = request.POST['team_email']
 
-    #  Check if user has made inquiry already
-    if request.user.is_authenticated:
-      user_id = request.user.id
-      has_contacted = Booking.objects.all().filter(partner_id=partner_id, user_id=user_id)
-      if has_contacted:
-        messages.error(request, 'You have already made an booking for this truck')
-        return redirect('/partners/'+partner_id)
-
+    #  
+  
     booking = Booking(
       partner=partner, 
       partner_id=partner_id,
@@ -59,4 +83,8 @@ def booking(request):
      )
 
     messages.success(request, 'Your request has been submitted, a team will get back to you soon')
-    return redirect('/partners/'+partner_id)
+    return redirect('/partners/'+partner_id)"""
+
+
+   
+
