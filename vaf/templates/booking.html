@@ -15,12 +15,13 @@
         Make Your Booking Here
         <h5 class="w3-center"><span class="w3-text-red">NB:</span>Pick unique dates</h5>
     </button>
-       
+</div>
 
-      </div>
-    </div>
   </section>
- 
+ <div class="w3-panel">
+     <!-- Alerts -->
+     {% include 'partials/_alerts.html' %}
+ </div>
   <!-- Inquiry Modal -->
   <div class="modal fade" id="inquiryModal" role="dialog">
     <div class="modal-dialog">
@@ -33,10 +34,13 @@
           </button>
         </div>
         <div class="modal-body">
-              <form action="{% url 'booking' %}" method="POST">
+              <form action="{% url 'testimonial' %}" method="POST">
                 {% csrf_token %}
-                {% if user.is_authenticated %}
-                  <input type="hidden" name="user_id" value="{{ user.id }}">
+          
+               {% if user.is_authenticated %}
+             
+
+                <input type="hidden" name="user_id" value="{{ user.id }}">
                 {% else %}
                   <input type="hidden" name="user_id" value="0">
                 {% endif %}
@@ -96,41 +100,32 @@
       </div>
     </div>
 
-    {% if bookings %}
+    {% if testimonials %}
 <div class="w3-container">
-    <h2 class="w3-center">Latest Bookings</h2>
+    <h2 class="w3-center">Testimonies</h2>
    
     <table class="w3-table">
       <tr>
-        <th class="w3-camo-black">Ministry Name</th>
-        <th class="w3-camo-black">From </th>
-        <th class="w3-camo-black">To</th>
-        <th class="w3-camo-black">Aproval status</th>
+        <th class="w3-camo-black"> Partner</th>
+        <th class="w3-camo-black">date Posted </th>
+        <th class="w3-camo-black">Message</th>
+      
         
       </tr>
       
-      {% for booking in bookings %}
+      {% for testimonial in testimonials %}
       <tr>
-        <td>{{booking.ministry_name}}</td>
-        <td>{{booking.booking_date}}</td>
-        <td>{{booking.return_date}}</td>
-        <td> {% if booking.approved %}
-                <p class="w3-green w3-button w3-button">Approved</p>
-             {% endif %}
-
-        {% if booking.unapproved %}
-                <p class="w3-red w3-button">Waiting....</p>
-             {% endif %}
-            
-    
-            </td>
+        <td>{{testimonial.partner}}</td>
+        <td>{{testimonial.date.posted}}</td>
+        <td>{{testimonial.testimony}}</td>
+       
       </tr>
       
       
       {% endfor %}
 {% else %}
 
-<p>THere are no booked dates</p>
+<p>THere are no testimonies</p>
 
 {% endif %}
     </table>

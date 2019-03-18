@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
 from bookings.views import booking
+from testimonials.views import testimonial
 
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('profile/', user_views.profile, name='profile' ),
     path('booking/', booking, name='booking'),
+    path('testimonial/', testimonial, name='testimonial'),
  
 
     

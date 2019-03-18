@@ -19,7 +19,10 @@ def booking(request):
         if form.is_valid():
             form.save()
     else:
+       
         form = BookingForm()
+        
+
      
     
     bookings = Booking.objects.order_by('-booking_date').filter(is_published=True)
@@ -30,7 +33,7 @@ def booking(request):
 
 
     messages.success(request, 'Your message has been sent')
-    return render (request, template, context)
+    return render (request,  template, context)
 
   
 

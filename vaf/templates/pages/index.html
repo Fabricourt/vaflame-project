@@ -101,7 +101,7 @@
                               <h2>Move your ministry to the next level. Achieve what you set out to do. </h2>
 
                               <figure>
-                                   <span><i class="fa fa-users"></i></span>
+                                   <span><i class="w3-hover-black fa fa-users"></i></span>
                                    <figcaption>
                                         <h3>Transport</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -109,7 +109,7 @@
                               </figure>
 
                               <figure>
-                                   <span><i class="fa fa-certificate"></i></span>
+                                   <span><i class="w3-hover-black  fa fa-certificate"></i></span>
                                    <figcaption>
                                         <h3>Sound</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -117,7 +117,7 @@
                               </figure>
 
                               <figure>
-                                   <span><i class="fa fa-bar-chart-o"></i></span>
+                                   <span><i class="w3-hover-black  fa fa-bar-chart-o"></i></span>
                                    <figcaption>
                                         <h3>Technical Support</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -126,18 +126,9 @@
                          </div>
                     </div>
 
-                    <div class="col-md-offset-1 col-md-4 col-sm-12">
-                         <div class="entry-form">
-                              <form action="#" method="post">
-                                   <h2>Signup today</h2>
-                                   <input type="text" name="full name" class="form-control" placeholder="Full name" required="">
-
-                                   <input type="email" name="email" class="form-control" placeholder="Your email address" required="">
-
-                                   <input type="password" name="password" class="form-control" placeholder="Your password" required="">
-
-                                   <button class="submit-btn form-control" id="form-submit">Get started</button>
-                              </form>
+                    <div class="col-md-offset-1 col-md-4 col-sm-12 ">
+                         <div class="entry-form w3-hover-red">
+                           <h1 class="w3-text-white"> We Offer Unparalled Support To Your Ministry</h1>
                          </div>
                     </div>
 
@@ -150,24 +141,26 @@
      <section id="partner">
           <div class="container">
                <div class="row">
-                {% if partners %}
-                    {% for  partner in partners %}
+              
+                   
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
                               <h2>Partners <small>Meet our partners</small></h2>
                          </div>
                     </div>
+               {% if partners %}
+                    {% for  partner in partners %}
 
                     <div class="col-md-3 col-sm-6">
                          <div class="team-thumb">
                               <div class="team-image">
-                                   <img src="{{ partner.photo.url }}" class="img-responsive" alt="">
+                                   <img src="{{ partner.photo.url }}" class="img-responsive" alt="" style="height:300px;">
                               </div>
                               <div class="team-info">
                                    <h3>{{ partner.first_name }}</h3>
                                    <span>{{ partner.ministry_name }}</span>
-                                   <a href="{% url 'partner' partner.id %}" class="btn w3-btn w3-hover-green btn-block">More about {{partner.ministry_name}}</a>
+                                   <a href="{% url 'partner' partner.id %}" class="btn w3-btn w3-hover-green btn-block">Discover More</a>
                               </div>
                               <ul class="social-icon">
                                    <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
@@ -368,6 +361,33 @@
                          <div class="section-title">
                               <h2>Partners Reviews <small>from all over the country</small></h2>
                          </div>
+                         
+ 
+    {% if testimonials %}
+    <div class="w3-container">
+      
+       
+        <table class="w3-table">
+         
+          
+          {% for testimonial in testimonials %}
+          <tr>
+            <td>{{testimonial.partner}}</td>
+            <td>{{testimonial.date_posted}}</td>
+            <td>{{testimonial.testimony}}</td>
+           
+          </tr>
+          
+          
+          {% endfor %}
+    {% else %}
+    
+    <p>THere are no testimonies</p>
+    
+    {% endif %}
+        </table>
+      </div>
+     </div>
 
                          <div class="owl-carousel owl-theme owl-client">
                               <div class="col-md-4 col-sm-4">
@@ -389,63 +409,6 @@
                                         </div>
                                    </div>
                               </div>
-
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="tst-image">
-                                             <img src="images/tst-image2.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="tst-author">
-                                             <h4>Camila</h4>
-                                             <span>Marketing Manager</span>
-                                        </div>
-                                        <p>Trying something new is exciting! Thanks for the amazing law course and the great teacher who was able to make it interesting.</p>
-                                        <div class="tst-rating">
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="tst-image">
-                                             <img src="images/tst-image3.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="tst-author">
-                                             <h4>Barbie</h4>
-                                             <span>Art Director</span>
-                                        </div>
-                                        <p>Donec erat libero, blandit vitae arcu eu, lacinia placerat justo. Sed sollicitudin quis felis vitae hendrerit.</p>
-                                        <div class="tst-rating">
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="tst-image">
-                                             <img src="images/tst-image4.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="tst-author">
-                                             <h4>Andrio</h4>
-                                             <span>Web Developer</span>
-                                        </div>
-                                        <p>Nam eget mi eu ante faucibus viverra nec sed magna. Vivamus viverra sapien ex, elementum varius ex sagittis vel.</p>
-                                        <div class="tst-rating">
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                        </div>
-                                   </div>
-                              </div>
-
                          </div>
 
                </div>
