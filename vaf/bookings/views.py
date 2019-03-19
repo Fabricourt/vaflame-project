@@ -32,7 +32,7 @@ def booking(request):
     }
 
 
-    messages.success(request, 'Your message has been sent')
+    messages.success(request, 'Your booking has been recieved')
     return render (request,  template, context)
 
   

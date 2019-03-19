@@ -155,7 +155,7 @@
                     <div class="col-md-3 col-sm-6">
                          <div class="team-thumb">
                               <div class="team-image">
-                                   <img src="{{ partner.photo.url }}" class="img-responsive" alt="" style="height:300px;">
+                                   <img src="{{ partner.photo.url }}" class="w3-border w3-padding img-responsive" alt="" style="padding:4px; height:200px;">
                               </div>
                               <div class="team-info">
                                    <h3>{{ partner.first_name }}</h3>
@@ -221,129 +221,6 @@
                                    </div>
                               </div>
 
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="courses-thumb">
-                                             <div class="courses-top">
-                                                  <div class="courses-image">
-                                                       <img src="images/courses-image2.jpg" class="img-responsive" alt="">
-                                                  </div>
-                                                  <div class="courses-date">
-                                                       <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
-                                                       <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
-                                                  </div>
-                                             </div>
-
-                                             <div class="courses-detail">
-                                                  <h3><a href="#">Graphic & Web Design</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                             </div>
-
-                                             <div class="courses-info">
-                                                  <div class="courses-author">
-                                                       <img src="images/author-image2.jpg" class="img-responsive" alt="">
-                                                       <span>Jessica</span>
-                                                  </div>
-                                                  <div class="courses-price">
-                                                       <a href="#"><span>USD 80</span></a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="courses-thumb">
-                                             <div class="courses-top">
-                                                  <div class="courses-image">
-                                                       <img src="images/courses-image3.jpg" class="img-responsive" alt="">
-                                                  </div>
-                                                  <div class="courses-date">
-                                                       <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
-                                                       <span><i class="fa fa-clock-o"></i> 6 Hours</span>
-                                                  </div>
-                                             </div>
-
-                                             <div class="courses-detail">
-                                                  <h3><a href="#">Marketing Communication</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                             </div>
-
-                                             <div class="courses-info">
-                                                  <div class="courses-author">
-                                                       <img src="images/author-image3.jpg" class="img-responsive" alt="">
-                                                       <span>Catherine</span>
-                                                  </div>
-                                                  <div class="courses-price free">
-                                                       <a href="#"><span>Free</span></a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="courses-thumb">
-                                             <div class="courses-top">
-                                                  <div class="courses-image">
-                                                       <img src="images/courses-image4.jpg" class="img-responsive" alt="">
-                                                  </div>
-                                                  <div class="courses-date">
-                                                       <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
-                                                       <span><i class="fa fa-clock-o"></i> 8 Hours</span>
-                                                  </div>
-                                             </div>
-
-                                             <div class="courses-detail">
-                                                  <h3><a href="#">Summer Kids</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                             </div>
-
-                                             <div class="courses-info">
-                                                  <div class="courses-author">
-                                                       <img src="images/author-image1.jpg" class="img-responsive" alt="">
-                                                       <span>Mark Wilson</span>
-                                                  </div>
-                                                  <div class="courses-price">
-                                                       <a href="#"><span>USD 45</span></a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="courses-thumb">
-                                             <div class="courses-top">
-                                                  <div class="courses-image">
-                                                       <img src="images/courses-image5.jpg" class="img-responsive" alt="">
-                                                  </div>
-                                                  <div class="courses-date">
-                                                       <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
-                                                       <span><i class="fa fa-clock-o"></i> 10 Hours</span>
-                                                  </div>
-                                             </div>
-
-                                             <div class="courses-detail">
-                                                  <h3><a href="#">Business &amp; Management</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                             </div>
-
-                                             <div class="courses-info">
-                                                  <div class="courses-author">
-                                                       <img src="images/author-image2.jpg" class="img-responsive" alt="">
-                                                       <span>Jessica</span>
-                                                  </div>
-                                                  <div class="courses-price free">
-                                                       <a href="#"><span>Free</span></a>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
 
                          </div>
 
@@ -353,67 +230,26 @@
 
 
      <!-- TESTIMONIAL -->
-     <section id="testimonial">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-12 col-sm-12">
-                         <div class="section-title">
-                              <h2>Partners Reviews <small>from all over the country</small></h2>
-                         </div>
-                         
- 
-    {% if testimonials %}
-    <div class="w3-container">
-      
-       
-        <table class="w3-table">
-         
-          
-          {% for testimonial in testimonials %}
-          <tr>
-            <td>{{testimonial.partner}}</td>
-            <td>{{testimonial.date_posted}}</td>
-            <td>{{testimonial.testimony}}</td>
-           
-          </tr>
-          
-          
-          {% endfor %}
-    {% else %}
-    
-    <p>THere are no testimonies</p>
-    
-    {% endif %}
-        </table>
-      </div>
-     </div>
-
-                         <div class="owl-carousel owl-theme owl-client">
-                              <div class="col-md-4 col-sm-4">
-                                   <div class="item">
-                                        <div class="tst-image">
-                                             <img src="images/tst-image1.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="tst-author">
-                                             <h4>Jackson</h4>
-                                             <span>Shopify Developer</span>
-                                        </div>
-                                        <p>You really do help young creative minds to get quality education and professional job search assistance. I’d recommend it to everyone!</p>
-                                        <div class="tst-rating">
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                             <i class="fa fa-star"></i>
-                                        </div>
-                                   </div>
+<section id="testimonial">
+     <div class="container">
+          {% if testimonials %}
+               <h2>Partner Testimonials h2>
+                    {% for testimonial in testimonials %}
+                         <div class="w3-panel">             
+                              <div class="w3-container ">
+                                   <h3 class="w3-left-align" >{{testimonial.partner}}</h3>
+                                   <p class="w3-left-align">{{testimonial.date_posted}}</p>
+                                   <img src="{{ testimonial.partner.profile.image.url }}" alt=" " class="w3-left w3-border w3-padding w3-circle" style="padding:2px; width:115px;">
+                                   <p class="w3-left-align">{{testimonial.testimony|safe}}</p>
                               </div>
                          </div>
-
-               </div>
-          </div>
-     </section>
+                    {% endfor %}
+          {% else %}                                    
+          <p>There are no testimonies</p>
+          {% endif %}
+            
+     </div>
+</section>
 
       
 

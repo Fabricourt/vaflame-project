@@ -34,7 +34,7 @@
           </button>
         </div>
         <div class="modal-body">
-              <form action="{% url 'testimonial' %}" method="POST">
+              <form action="{% url 'booking' %}" method="POST">
                 {% csrf_token %}
           
                {% if user.is_authenticated %}
@@ -100,35 +100,45 @@
       </div>
     </div>
 
-    {% if testimonials %}
+    {% if bookings %}
 <div class="w3-container">
-    <h2 class="w3-center">Testimonies</h2>
+    <h2 class="w3-center">Bookings</h2>
    
     <table class="w3-table">
       <tr>
-        <th class="w3-camo-black"> Partner</th>
-        <th class="w3-camo-black">date Posted </th>
-        <th class="w3-camo-black">Message</th>
+        <th class="w3-camo-black"> Ministry</th>
+        <th class="w3-camo-black">From</th>
+        <th class="w3-camo-black">To</th>
+        <th class="w3-camo-black">Approval</th>
       
         
       </tr>
       
-      {% for testimonial in testimonials %}
+      {% for booking in bookings %}
       <tr>
-        <td>{{testimonial.partner}}</td>
-        <td>{{testimonial.date.posted}}</td>
-        <td>{{testimonial.testimony}}</td>
+        <td>{{booking.ministry_name}}</td>
+        <td>{{booking.booking_date}}</td>
+        <td>{{booking.return_date}}</td>
+        <td>
+            {% if booking.approved%}
+            <span class="w3-green w3-button ">Approved</span>
+            {% else %}
+            <span class="w3-red w3-button ">waiting.....</span>
+            {% endif %}
+
+        </td>
        
       </tr>
-      
-      
       {% endfor %}
+
 {% else %}
 
 <p>THere are no testimonies</p>
 
 {% endif %}
+
     </table>
+    <div><h3><span class="w3-text-red">NB:</span> You Booking will be approved once your payments are received.......</h3></div>
   </div>
   <br><br><br>
   

@@ -8,6 +8,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from.models import Testimonial
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def testimonial(request):
     template ="testimonial.html"
@@ -29,12 +30,10 @@ def testimonial(request):
     }
 
 
-    messages.success(request, 'Your message has been sent')
+    messages.success(request, 'Your testimony has been recieved')
     return render (request,  template, context)
 
   
-
-
 
 
 
