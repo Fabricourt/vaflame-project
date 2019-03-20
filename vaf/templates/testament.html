@@ -1,0 +1,84 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block title %} | Testimonials {% endblock %}
+
+{% block content %}
+
+    <!-- Inquiry Modal -->
+    <div class="card Jumbotron w3-margin w3-black mb-3">
+        <button class="w3-white w3-xlarge w3-round-xxlarge w3-center w3-hover-red  w3-btn w3-block" data-toggle="modal" data-target="#inquiryModal"> <h1 class="w3-jumbo w3-center">Partners Testimonies</h1>
+           
+            <h4> Create your testimony here</h4>
+        </button>
+    </div>
+        <div class="modal fade" id="inquiryModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header w3-win8-red">
+                <h5 class="modal-title" id="inquiryModalLabel">Testimonial form</h5>
+            
+                <button type="button" class="close" data-dismiss="modal">
+                <span class="w3-text-white">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <form action="{% url 'testament' %}" method="POST">
+                    {% csrf_token %}
+                
+                    {% if user.is_authenticated %}
+                
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                    {% else %}
+                        <input type="hidden" name="user_id" value="0">
+                    {% endif %}
+                    
+                    <div class="form-group">
+                    <label for="name">Name</label>
+                        <input type="text" name="name" class="form-control" value="{{ user.first_name}} {{ user.last_name }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ministry_name">Ministry Name</label>
+                            <input type="text" name="ministry_name" class="form-control"  required>
+                        </div>
+                    <div class="form-group">
+                        <label for="message" class="col-form-label">What do you think about us:</label>
+                        <textarea name="message" class="form-control"></textarea>
+                    </div>
+                    <hr>
+                    <input type="submit" value="Send" class="btn btn-block btn-secondary">
+                    </form>
+                
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- TESTIMONIAL -->
+     <section id="testament">
+        <div class="container">
+             {% if testaments %}
+                  <h2>Partner Testimonials </h2>
+                       {% for testament in testaments %}
+                            <div class="w3-panel">             
+                                 <div class="w3-container ">
+                                      <h3 class="w3-left-align" >{{testament.partner|capfirst}}</h3>
+                                      <p class="w3-left-align">{{testament.ministry_name|capfirst}}</p>
+                                      <p class="w3-left-align">{{testament.post_date}}</p>
+                                      <img src="{{ testament.partner.profile.image.url}}" alt=" " class="w3-left w3-border w3-padding w3-circle" style="padding:2px; width:115px; height:100px;">
+                                      <p class="w3-left-align">{{testament.message|safe}}</p>
+                                 </div>
+                            </div>
+                       {% endfor %}
+             {% else %}                                    
+             <p>There are no testimonies</p>
+            {% endif %}   
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

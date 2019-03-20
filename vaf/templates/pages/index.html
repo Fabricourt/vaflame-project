@@ -7,6 +7,9 @@
 {% block content %}
 
      <!-- HOME -->
+     
+
+
   <div class=" w3-section w3-display-container w3-small" style="width:100%;">
        
 
@@ -45,16 +48,7 @@
 
 </div>
 
- <div class="w3-card w3-yellow">
-      {% if partners %}
-          {% for partner in partners %}
-
-          {% endfor %}
-          <div class="col-md-12">
-               <p>No Partners Available</p>
-          </div>
-      {% endif %}
- </div>
+     
 
 
      <!-- FEATURE -->
@@ -101,7 +95,7 @@
                               <h2>Move your ministry to the next level. Achieve what you set out to do. </h2>
 
                               <figure>
-                                   <span><i class="w3-hover-black fa fa-users"></i></span>
+                                   <span><i class="fa fa-users"></i></span>
                                    <figcaption>
                                         <h3>Transport</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -109,7 +103,7 @@
                               </figure>
 
                               <figure>
-                                   <span><i class="w3-hover-black  fa fa-certificate"></i></span>
+                                   <span><i class="fa fa-certificate"></i></span>
                                    <figcaption>
                                         <h3>Sound</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -117,7 +111,7 @@
                               </figure>
 
                               <figure>
-                                   <span><i class="w3-hover-black  fa fa-bar-chart-o"></i></span>
+                                   <span><i class="fa fa-bar-chart-o"></i></span>
                                    <figcaption>
                                         <h3>Technical Support</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -126,9 +120,18 @@
                          </div>
                     </div>
 
-                    <div class="col-md-offset-1 col-md-4 col-sm-12 ">
-                         <div class="entry-form w3-hover-red">
-                           <h1 class="w3-text-white"> We Offer Unparalled Support To Your Ministry</h1>
+                    <div class="col-md-offset-1 col-md-4 col-sm-12">
+                         <div class="entry-form">
+                              <form action="#" method="post">
+                                   <h2>Signup today</h2>
+                                   <input type="text" name="full name" class="form-control" placeholder="Full name" required="">
+
+                                   <input type="email" name="email" class="form-control" placeholder="Your email address" required="">
+
+                                   <input type="password" name="password" class="form-control" placeholder="Your password" required="">
+
+                                   <button class="submit-btn form-control" id="form-submit">Get started</button>
+                              </form>
                          </div>
                     </div>
 
@@ -141,26 +144,23 @@
      <section id="partner">
           <div class="container">
                <div class="row">
-              
-                   
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
                               <h2>Partners <small>Meet our partners</small></h2>
                          </div>
                     </div>
-               {% if partners %}
-                    {% for  partner in partners %}
-
+                   {% if partners %}
+                    {% for partner in partners %}
                     <div class="col-md-3 col-sm-6">
+                    
                          <div class="team-thumb">
                               <div class="team-image">
-                                   <img src="{{ partner.photo.url }}" class="w3-border w3-padding img-responsive" alt="" style="padding:4px; height:200px;">
+                                   <img src="{{ partner.photo.url }}" class="img-responsive" alt="" style="height:200px;">
                               </div>
                               <div class="team-info">
-                                   <h3>{{ partner.first_name }}</h3>
-                                   <span>{{ partner.ministry_name }}</span>
-                                   <a href="{% url 'partner' partner.id %}" class="btn w3-btn w3-hover-green btn-block">Discover More</a>
+                                   <h3>{{partner.ministry_name}}</h3>
+                                   <span>I love Teaching</span>
                               </div>
                               <ul class="social-icon">
                                    <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
@@ -169,11 +169,17 @@
                               </ul>
                          </div>
                     </div>
-                    {% endfor %}
-                    <div class="col-md-12">
-                         <p>No Partners Available</p>
-                    </div>
-                {% endif %}
+                         {% endfor %}
+                                             {% else %}
+                                             <p>There are no partners Available</p>
+                                             {% endif %}
+                    
+
+                   
+
+                  
+                 
+
                </div>
           </div>
      </section>
@@ -207,88 +213,61 @@
                                                   <h3><a href="#">Social Media Management</a></h3>
                                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                              </div>
+                                             {% if partners %}
+                                             {% for partner in partners %}
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image1.jpg" class="img-responsive" alt="">
-                                                       <span>Mark Wilson</span>
+                                                       <img src="{{ partner.photo.url }}" class="img-responsive" alt="">
+                                                       <span>{{partner.ministry_name}}</span>
                                                   </div>
                                                   <div class="courses-price">
                                                        <a href="#"><span>USD 25</span></a>
                                                   </div>
                                              </div>
+                                             {% endfor %}
+                                             {% else %}
+                                             <p>There are no partners Available</p>
+                                             {% endif %}
                                         </div>
                                    </div>
                               </div>
 
 
+                              
+
                          </div>
 
                </div>
           </div>
      </section>
 
-
-     <!-- TESTIMONIAL -->
-<section id="testimonial">
-     <div class="container">
-          {% if testimonials %}
-               <h2>Partner Testimonials h2>
-                    {% for testimonial in testimonials %}
-                         <div class="w3-panel">             
-                              <div class="w3-container ">
-                                   <h3 class="w3-left-align" >{{testimonial.partner}}</h3>
-                                   <p class="w3-left-align">{{testimonial.date_posted}}</p>
-                                   <img src="{{ testimonial.partner.profile.image.url }}" alt=" " class="w3-left w3-border w3-padding w3-circle" style="padding:2px; width:115px;">
-                                   <p class="w3-left-align">{{testimonial.testimony|safe}}</p>
-                              </div>
-                         </div>
-                    {% endfor %}
-          {% else %}                                    
-          <p>There are no testimonies</p>
-          {% endif %}
-            
-     </div>
-</section>
-
-      
-
-
-     <!-- CONTACT -->
-     <section id="contact">
+       <!-- TESTIMONIAL -->
+       <section id="testament">
           <div class="container">
-               <div class="row">
-
-                    <div class="col-md-6 col-sm-12">
-                         <form id="contact-form" role="form" action="" method="post">
-                              <div class="section-title">
-                                   <h2>Contact us <small>we love conversations. let us talk!</small></h2>
+               {% if testaments %}
+                    <h2 class="w3-center">Partner Testimonials </h2>
+                         {% for testament in testaments %}
+                              <div class="w3-panel">             
+                                   <div class="w3-container ">
+                                        <h3 class="w3-left-align" >{{testament.partner|capfirst}}</h3>
+                                        <p class="w3-left-align">{{testament.ministry_name|capfirst}}</p>
+                                        <p class="w3-left-align">{{testament.post_date}}</p>
+                                        <img src="{{ testament.partner.profile.image.url}}" alt=" " class="w3-left w3-border w3-padding w3-circle" style="padding:2px; width:115px; height:100px;">
+                                        <p class="w3-left-align">{{testament.message|safe}}</p>
+                                   </div>
                               </div>
-
-                              <div class="col-md-12 col-sm-12">
-                                   <input type="text" class="form-control" placeholder="Enter full name" name="name" required="">
-
-                                   <input type="email" class="form-control" placeholder="Enter email address" name="email" required="">
-
-                                   <textarea class="form-control" rows="6" placeholder="Tell us about your message" name="message" required=""></textarea>
-                              </div>
-
-                              <div class="col-md-4 col-sm-12">
-                                   <input type="submit" class="form-control" name="send message" value="Send Message">
-                              </div>
-
-                         </form>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12">
-                         <div class="contact-image">
-                              <img src="{% static "images/contact-image.jpg" %}" class="img-responsive" alt="Smiling Two Girls" style="height: 500px;">
-                         </div>
-                    </div>
-
-               </div>
+                         {% endfor %}
+               {% else %}                                    
+               <p>There are no testimonies</p>
+              {% endif %}   
           </div>
-     </section>
+      </section>
+  
+
+
+
+
 
 
 

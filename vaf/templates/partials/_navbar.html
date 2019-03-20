@@ -59,14 +59,15 @@
                     <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}  
                     <li
-                    {% if 'testimonial' in request.path %}
-                         class="nav-item active mr-3"
-                    {% else %}
-                         class="nav-item mr-3"
-                    {% endif %}
-                    >
-                    <a class="nav-link" href="{% url 'testimonial' %}">Testimonials</a>
-                    </li>   
+                    {% if 'testament' in request.path %}
+                    class="nav-item active mr-3"
+                     {% else %}
+                       class="nav-item mr-3"
+                     {% endif %}
+                     >
+                     <a class="nav-link" href="{% url 'testament' %}">Testimonial</a>
+                     </li>
+                       
                     <li
                     {% if 'profile' in request.path %}
                          class="nav-item active mr-3"
@@ -85,7 +86,7 @@
                     {% endif %}
                     >
                       <a class="nav-link" href="{% url 'dashboard' %}">
-                      Welcome {{ user.username }} Dashboard  </a>
+                       {{ user.username|capfirst }} Dashboard  </a>
                     </li>
                     <li class="nav-item mr-3">
                       <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
